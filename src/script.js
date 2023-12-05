@@ -8,6 +8,12 @@ function search(event) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchInputElement.value}&key=${apiKey}`;
 
   axios.get(apiUrl).then(function (response) {
+    let conditionElement = document.querySelector("#condition");
+    conditionElement.innerHTML = `${response.data.condition.description}`;
+    let humidityElement = document.querySelector("#humidity");
+    humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+    let windElement = document.querySelector("#wind");
+    windElement.innerHTML = `${response.data.wind.speed} km/h`;
     let temperature = Math.round(response.data.temperature.current);
     let temperatureElement = document.querySelector(
       "#current-temperature-value"
