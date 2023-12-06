@@ -61,3 +61,31 @@ let currentDateELement = document.querySelector("#current-date");
 let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHtml = "";
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="class-row">
+          <div class="col-2">
+            <div class="weather-forecast-date">${day}</div>
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/4052/4052984.png"
+              alt="icon-image"
+              width="36px"
+            />
+            <br />
+            <div class="weather-forecast-values">
+              <span class="maximum-value">18°</span>
+              <span class="minimum-value">12°</span>
+            </div>
+          </div>
+        </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHtml;
+}
+displayForecast();
